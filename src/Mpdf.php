@@ -19093,7 +19093,7 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 					$checkCJK = false;
 				}
 
-				$letters = preg_split('//u', $line);
+				if($letters = preg_split('//u', $line)){
 				foreach ($letters as $k => $letter) {
 					// mPDF 6
 					if ($checkCJK) {
@@ -19121,6 +19121,7 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 						}
 						$toonarrow = true;
 					}
+				}
 				}
 			} else {
 				// mPDF 6
